@@ -3,7 +3,7 @@
 > **Know before you swallow.**  
 > Built for CodeCure AI Hackathon — SPIRIT'26, IIT BHU
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-E07A5F?style=for-the-badge)](https://YOUR_USERNAME.github.io/medsafe)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-E07A5F?style=for-the-badge)](https://himanshuiitp.github.io/medsafe)
 [![Made With](https://img.shields.io/badge/Made%20With-HTML%20CSS%20JS-3D9E8C?style=for-the-badge)](#)
 [![API](https://img.shields.io/badge/Powered%20By-Gemini%20AI%20%2B%20NIH%20RxNorm-C9566B?style=for-the-badge)](#)
 
