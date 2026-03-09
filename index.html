@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedSafe — Drug Interaction Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="keyOverlay" class="key-overlay">
+    <div class="key-modal">
+      <div class="key-modal-top">
+        <div class="key-icon">🔑</div>
+        <h2>Enter your Gemini API Key</h2>
+        <p>Your key stays in your browser only — never sent anywhere except Google's API.</p>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" class="key-link">Get a free key at aistudio.google.com →</a>
+      </div>
+      <div class="key-input-row">
+        <input type="password" id="keyInput" placeholder="AIza..." spellcheck="false" />
+        <button class="key-eye" id="keyToggle">👁</button>
+      </div>
+      <p class="key-error" id="keyError"></p>
+      <button class="key-submit" id="keySubmit">Let's Go →</button>
+    </div>
+  </div>
+
+  <div id="drugModal" class="drug-modal-overlay">
+    <div class="drug-modal">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="noise"></div>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-pill">💊</div>
+      <span>MedSafe</span>
+    </div>
+    <div class="nav-right">
+      <div class="nav-tag">NIH RxNorm + openFDA + Gemini AI</div>
+      <button class="change-key-btn" id="changeKeyBtn">🔑 Key</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Real FDA drug data
+      </div>
+      <h1>Know before<br /><em>you swallow.</em></h1>
+      <p class="hero-sub">Check dangerous drug interactions and look up any medication by brand name — explained in plain language.</p>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="checker">⚡ Interaction Checker</button>
+      <button class="tab" data-tab="lookup">🔍 Drug Lookup</button>
+    </div>
+
+    <section class="tab-panel active" id="tab-checker">
+      <div class="checker-card">
+        <div class="card-label">Add medications to check</div>
+        <div class="input-row">
+          <div class="input-wrap">
+            <input type="text" id="drugInput" placeholder="Generic or brand name..." autocomplete="off" />
+            <div class="suggestions" id="suggestions"></div>
+          </div>
+          <button class="btn-add" id="addBtn">+</button>
+        </div>
+        <div class="pills-area" id="pillsArea">
+          <span class="pills-placeholder" id="pillsPlaceholder">Your medications will appear here...</span>
+        </div>
+        <button class="btn-check" id="checkBtn" disabled>
+          <span class="btn-text">Check Interactions</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+      <div class="loading-area" id="loadingArea">
+        <div class="spinner"></div>
+        <p id="loadingText">Scanning drug database...</p>
+      </div>
+
+      <section class="results-area" id="resultsArea">
+        <div class="results-meta">
+          <h2>Interaction Report</h2>
+          <span class="results-badge" id="resultsBadge"></span>
+        </div>
+        <div class="drug-info-row" id="drugInfoRow"></div>
+        <div class="results-list" id="resultsList"></div>
+        <div class="disclaimer">
+          <span class="disc-icon">⚕️</span>
+          This tool provides general information only and is not a substitute for professional medical advice. Always consult a licensed healthcare provider before changing your medication.
+        </div>
+      </section>
+    </section>
+
+    <section class="tab-panel" id="tab-lookup">
+      <div class="checker-card">
+        <div class="card-label">Search by brand or generic name</div>
+        <div class="input-row">
+          <div class="input-wrap">
+            <input type="text" id="lookupInput" placeholder="e.g. Crocin, Dolo, Brufen, Combiflam..." autocomplete="off" />
+          </div>
+          <button class="btn-add" id="lookupBtn">→</button>
+        </div>
+        <p class="lookup-hint">Try: <span onclick="doLookup('Crocin')">Crocin</span>, <span onclick="doLookup('Dolo')">Dolo 650</span>, <span onclick="doLookup('Combiflam')">Combiflam</span>, <span onclick="doLookup('Ecosprin')">Ecosprin</span>, <span onclick="doLookup('Pantop')">Pantop</span></p>
+      </div>
+
+      <div class="loading-area" id="lookupLoadingArea">
+        <div class="spinner"></div>
+        <p>Fetching drug info from FDA...</p>
+      </div>
+
+      <div class="lookup-results" id="lookupResults"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
