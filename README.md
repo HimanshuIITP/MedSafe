@@ -1,7 +1,6 @@
 # 💊 MedSafe — AI Drug Interaction Checker
 
 > **Know before you swallow.**  
-> Built for CodeCure AI Hackathon — SPIRIT'26, IIT BHU
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-E07A5F?style=for-the-badge)](https://himanshuiitp.github.io/MedSafe/)
 [![Made With](https://img.shields.io/badge/Made%20With-HTML%20CSS%20JS-3D9E8C?style=for-the-badge)](#)
