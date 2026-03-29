@@ -121,6 +121,7 @@ MedSafe provides general information only and does not constitute medical advice
 
 ## 👨‍💻 Built By : **Himanshu Kundal**  
 
+<img src="assets/image.png" alt="logo" width="450">
 
 ---
 
